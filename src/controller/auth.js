@@ -23,7 +23,7 @@ exports.signup = (req, res) => {
             lastName,
             email,
             hash_password,
-            username: shortid.generate(),
+            userName: shortid.generate(),
         });
 
         _user.save((error, user) => {
