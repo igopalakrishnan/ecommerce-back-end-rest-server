@@ -34,8 +34,13 @@ mongoose.connect(
     console.log('mongoDB connected......');
 })
 
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
 //add middleware before the request
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', authRoutes);
